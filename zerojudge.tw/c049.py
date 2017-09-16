@@ -1,0 +1,202 @@
+import math
+maps=[]
+maps.append([0,0])
+maps.append([4,0])
+maps.append([12,4])
+maps.append([20,12])
+maps.append([28,24])
+maps.append([36,52])
+maps.append([44,76])
+maps.append([52,112])
+maps.append([60,148])
+maps.append([68,192])
+maps.append([76,256])
+maps.append([84,308])
+maps.append([92,376])
+maps.append([100,440])
+maps.append([108,524])
+maps.append([116,608])
+maps.append([124,688])
+maps.append([132,796])
+maps.append([140,904])
+maps.append([148,1012])
+maps.append([156,1124])
+maps.append([164,1232])
+maps.append([172,1372])
+maps.append([180,1508])
+maps.append([188,1648])
+maps.append([196,1788])
+maps.append([204,1952])
+maps.append([212,2112])
+maps.append([220,2268])
+maps.append([228,2448])
+maps.append([236,2616])
+maps.append([244,2812])
+maps.append([252,3000])
+maps.append([260,3184])
+maps.append([268,3388])
+maps.append([276,3608])
+maps.append([284,3828])
+maps.append([292,4052])
+maps.append([300,4272])
+maps.append([308,4516])
+maps.append([316,4748])
+maps.append([324,5008])
+maps.append([332,5252])
+maps.append([340,5512])
+maps.append([348,5784])
+maps.append([356,6044])
+maps.append([364,6328])
+maps.append([372,6600])
+maps.append([380,6900])
+maps.append([388,7200])
+maps.append([396,7508])
+maps.append([404,7820])
+maps.append([412,8136])
+maps.append([420,8476])
+maps.append([428,8788])
+maps.append([436,9120])
+maps.append([444,9468])
+maps.append([452,9804])
+maps.append([460,10176])
+maps.append([468,10508])
+maps.append([476,10896])
+maps.append([484,11272])
+maps.append([492,11636])
+maps.append([500,12032])
+maps.append([508,12392])
+maps.append([516,12828])
+maps.append([524,13224])
+maps.append([532,13644])
+maps.append([540,14060])
+maps.append([548,14472])
+maps.append([556,14916])
+maps.append([564,15340])
+maps.append([572,15768])
+maps.append([580,16244])
+maps.append([588,16684])
+maps.append([596,17152])
+maps.append([604,17604])
+maps.append([612,18088])
+maps.append([620,18584])
+maps.append([628,19052])
+maps.append([636,19544])
+maps.append([644,20032])
+maps.append([652,20564])
+maps.append([660,21072])
+maps.append([668,21580])
+maps.append([676,22092])
+maps.append([684,22640])
+maps.append([692,23180])
+maps.append([700,23716])
+maps.append([708,24248])
+maps.append([716,24828])
+maps.append([724,25380])
+maps.append([732,25952])
+maps.append([740,26516])
+maps.append([748,27104])
+maps.append([756,27680])
+maps.append([764,28268])
+maps.append([772,28864])
+maps.append([780,29472])
+maps.append([788,30132])
+maps.append([796,30720])
+maps.append([804,31356])
+maps.append([812,31948])
+maps.append([820,32608])
+maps.append([828,33276])
+maps.append([836,33892])
+maps.append([844,34552])
+maps.append([852,35204])
+maps.append([860,35880])
+maps.append([868,36568])
+maps.append([876,37236])
+maps.append([884,37952])
+maps.append([892,38616])
+maps.append([900,39316])
+maps.append([908,40016])
+maps.append([916,40728])
+maps.append([924,41468])
+maps.append([932,42192])
+maps.append([940,42916])
+maps.append([948,43636])
+maps.append([956,44368])
+maps.append([964,45140])
+maps.append([972,45908])
+maps.append([980,46672])
+maps.append([988,47460])
+maps.append([996,48216])
+maps.append([1004,48992])
+maps.append([1012,49764])
+maps.append([1020,50592])
+maps.append([1028,51376])
+maps.append([1036,52188])
+maps.append([1044,52984])
+maps.append([1052,53792])
+maps.append([1060,54636])
+maps.append([1068,55464])
+maps.append([1076,56316])
+maps.append([1084,57140])
+maps.append([1092,58016])
+maps.append([1100,58860])
+maps.append([1108,59700])
+maps.append([1116,60584])
+maps.append([1124,61476])
+maps.append([1132,62360])
+maps.append([1140,63232])
+maps.append([1148,64092])
+maps.append([1156,65024])
+maps.append([1164,65952])
+maps.append([1172,66868])
+maps.append([1180,67768])
+maps.append([1188,68708])
+maps.append([1196,69660])
+
+while 1:
+	try:
+		n=int(input())
+	except EOFError:
+		break
+	
+	all=0
+	half=0
+	print("In the case n = {}, {} cells contain segments of the circle.".format(n,maps[n][0]))
+	print("There are {} cells completely contained in the circle.".format(maps[n][1]))
+'''
+for i in range(n*2):
+		for j in range(n*2):
+			if(i<n):
+				if(j<n):
+					l2=(n-i)*(n-i)+(n-j)*(n-j);
+					if(l2<=((2*n-1)/2)*((2*n-1)/2)):
+						all+=1
+					else:
+						l3=(n-i-1)*(n-i-1)+(n-j-1)*(n-j-1);
+						if(l3<((2*n-1)/2)*((2*n-1)/2)):
+							half+=1
+				else:
+					l2=(n-i)*(n-i)+(n-j-1)*(n-j-1);
+					if(l2<=((2*n-1)/2)*((2*n-1)/2)):
+						all+=1
+					else:
+						l3=(n-i-1)*(n-i-1)+(n-j)*(n-j);
+						if(l3<((2*n-1)/2)*((2*n-1)/2)):
+							half+=1
+			else:
+				if(j<n):
+					l2=(n-i-1)*(n-i-1)+(n-j)*(n-j);
+					if(l2<=((2*n-1)/2)*((2*n-1)/2)):
+						all+=1
+					else:
+						l3=(n-i)*(n-i)+(n-j-1)*(n-j-1);
+						if(l3<((2*n-1)/2)*((2*n-1)/2)):
+							half+=1
+				else:
+					l2=(n-i-1)*(n-i-1)+(n-j-1)*(n-j-1);
+					if(l2<=((2*n-1)/2)*((2*n-1)/2)):
+						all+=1
+					else:
+						l3=(n-i)*(n-i)+(n-j)*(n-j);
+						if(l3<((2*n-1)/2)*((2*n-1)/2)):
+							half+=1
+'''
