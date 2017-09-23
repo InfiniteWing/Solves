@@ -1,4 +1,28 @@
+# Vesion 3
+# Use the Stirling's approximation with log base 10
+import math
 
+def digit(n):
+    if(n==0):
+        return 0
+    return (0.5*(math.log10(2*math.pi*n))+n*math.log10(n)-n)
+
+while True:
+    try:
+        s=input()
+    except EOFError:
+        break
+    d=s.split(' ')
+    n=int(d[0])
+    k=int(d[1])
+    ans=math.ceil(digit(n)-digit(n-k)-digit(k))
+    if(ans==0):
+        ans=1
+    print(ans)
+
+'''
+# Version 2
+# faster than ver.1
 import math
 
 def C(n,k):
@@ -16,8 +40,9 @@ while True:
     n=int(d[0])
     k=int(d[1])
     print(C(n,k))
-
 '''
+'''
+# Version 1
 from decimal import *
 
 def GCD(m, n):
