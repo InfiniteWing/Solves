@@ -1,3 +1,23 @@
+
+import math
+
+def C(n,k):
+    ans=0
+    for i in range(k):
+        ans+=math.log10(n-i)
+        ans-=math.log10(k-i)
+    return math.ceil(ans)
+while True:
+    try:
+        s=input()
+    except EOFError:
+        break
+    d=s.split(' ')
+    n=int(d[0])
+    k=int(d[1])
+    print(C(n,k))
+
+'''
 from decimal import *
 
 def GCD(m, n):
@@ -43,3 +63,4 @@ while True:
     n=int(d[0])
     k=int(d[1])
     print(C(n,k))
+'''
