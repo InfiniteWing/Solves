@@ -1,25 +1,29 @@
 from sys import stdin, stdout
-import os
+import os,itertools
 
-lines = os.read(0, 35000000)
-size = os.fstat(0).st_size
-ptr = 35000000
-os.lseek(0, ptr, 0)
-while(ptr < size):
-    ptr += 35000000
-    lines += os.read(0,35000000)
-    os.lseek(0, ptr, 0)
-for s in lines.decode().splitlines():
-    if(s.isdigit()):
-        continue
-    ans = 0
-    l = 0
-    for c in s:
-        if(c == 'p'):
-            l += 1
-        elif(c == 'q'):
-            if(l > 0):
-                l -= 1
-                ans += 1
-    print(ans)
-            
+start = False
+ans = 0
+l = 0
+newin = os.fdopen(stdin.fileno(), 'rb', 8192 * 1024)
+
+for line in fo.readlines():
+    record = os.read(newin.fileno(), 1024 * 1024)
+    if not record:
+        break
+    for c in record:
+        if(c == 46):
+            pass
+        if(c in [112,113,46]):
+            start = True
+            if(c == 112):
+                l += 1
+            elif(c == 113):
+                if(l > 0):
+                    l -= 1
+                    ans += 1
+        elif(c not in [112,113,46,48,49,50,51,52,53,54,55,56,57]):
+            if(start):
+                print(ans)
+                start = False
+                ans = 0
+                l = 0
