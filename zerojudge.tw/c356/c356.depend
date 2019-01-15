@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1546525601 source:f:\solves\zerojudge.tw\c356\main.cpp
+	<iostream>
+	<string>
+	<stdio.h>
+
