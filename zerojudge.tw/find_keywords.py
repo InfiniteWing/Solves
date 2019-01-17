@@ -1,6 +1,6 @@
 import os, sys
 def main():
-    find = 'base'
+    find = 'gcd'
     dirs = os.listdir()
     for filename in dirs:
         if('.py' in filename):
@@ -8,7 +8,7 @@ def main():
             for line in file.readlines():
                 if(find in line):
                     print(filename)
-                    #print(line)
+                    print(line)
                     break
             file.close()
 main()
